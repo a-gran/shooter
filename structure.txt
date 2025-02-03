@@ -1,0 +1,50 @@
+space_shooter/
+├── assets/
+│   ├── backgrounds/
+│   │   └── space1.jpg
+│   ├── ships/
+│   │   ├── spaceship.png
+│   │   └── transport.png
+│   ├── objects/
+│   │   ├── asteroid.png
+│   │   └── bullet.png
+│   ├── explosions/
+│   │   ├── enemy/
+│   │   │   ├── exp1.png
+│   │   │   ├── exp2.png
+│   │   │   ├── exp3.png
+│   │   │   ├── exp4.png
+│   │   │   └── exp5.png
+│   │   └── asteroid/
+│   │       ├── vzriv1.png
+│   │       ├── vzriv2.png
+│   │       ├── vzriv3.png
+│   │       ├── vzriv4.png
+│   │       ├── vzriv5.png
+│   │       └── vzriv6.png
+│   └── sounds/
+│       ├── space.ogg
+│       ├── fire.ogg
+│       ├── explosion.mp3
+│       └── vzriv.ogg
+├── src/
+│   ├── __init__.py
+│   ├── config/
+│   │   ├── __init__.py
+│   │   ├── constants.py
+│   │   └── variables.py
+│   ├── sprites/
+│   │   ├── __init__.py
+│   │   ├── game_sprite.py
+│   │   ├── player.py
+│   │   ├── enemy.py
+│   │   ├── bullet.py
+│   │   └── asteroid.py
+│   ├── effects/
+│   │   ├── __init__.py
+│   │   ├── explosion.py
+│   │   └── scrolling_background.py
+│   └── utils/
+│       ├── __init__.py
+│       └── asset_loader.py
+└── main.py
