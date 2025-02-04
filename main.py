@@ -105,7 +105,23 @@ while run:
             explosions.add(explosion1)
             explosion_sound.play()
             score += 1
-            add_enemy()
+            if score >= 10:
+                # Ждем пока анимация взрыва завершится
+                while len(explosions) > 0:
+                    background.update()
+                    background.draw(mw)
+                    text = font2.render("Score: " + str(score), 1, (255, 255, 255))
+                    mw.blit(text, (10, 20))
+                    explosions.update()
+                    explosions.draw(mw)
+                    pygame.display.update()
+                    pygame.time.delay(20)
+                # Добавляем небольшую паузу перед показом сообщения о победе
+                pygame.time.delay(500)
+                mw.blit(win, (win_width//2-100, win_height//2-50))
+                finish = True
+            else:
+                add_enemy()
 
         asteroid_hits = pygame.sprite.groupcollide(asteroids, bullets, True, True)
         for hit in asteroid_hits:
@@ -114,10 +130,7 @@ while run:
             vzriv_sound.play()
             add_asteroid()        
 
-        if score >= 10:
-            mw.blit(win, (win_width//2-100, win_height//2-50))
-            finish = True
-        elif lost >= max_lost:
+        if lost >= max_lost:
             mw.blit(lose, (win_width//2-100, win_height//2-50))
             finish = True
 
