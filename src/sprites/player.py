@@ -1,7 +1,7 @@
-from variables import img_bullet, win_width
-from bullet import Bullet
 import pygame
-from game_sprite import GameSprite
+from src.config.variables import img_bullet, win_width
+from src.sprites.bullet import Bullet
+from src.sprites.game_sprite import GameSprite
 
 class Player(GameSprite):
     def __init__(self, image, x, y, size_x, size_y, speed):

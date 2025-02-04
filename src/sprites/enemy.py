@@ -1,6 +1,6 @@
 from random import randint
-from variables import win_width, win_height, lost
-from game_sprite import GameSprite
+from src.config.variables import win_width, win_height, lost
+from src.sprites.game_sprite import GameSprite
 
 class Enemy(GameSprite):
     def update(self):

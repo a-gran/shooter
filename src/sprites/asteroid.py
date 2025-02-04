@@ -1,8 +1,9 @@
+import pygame
 import math
 from random import randint
-from variables import win_width, win_height
-from game_sprite import GameSprite
-import pygame
+from src.config.variables import win_width, win_height
+from src.sprites.game_sprite import GameSprite
+
 
 class Asteroid(GameSprite):
     def __init__(self, image, x, y, size_x, size_y, speed):

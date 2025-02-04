@@ -1,24 +1,34 @@
 import pygame
-from random import randint
-from variables import *
-from constants import FPS
-from player import Player
-from enemy import Enemy
-from asteroid import Asteroid
-from explosion import *
-from scrolling_background import ScrollBackground
 import os
+from random import randint
 
+# Конфигурация
+from src.config.variables import *
+from src.config.constants import FPS
+
+# Спрайты
+from src.sprites.player import Player
+from src.sprites.enemy import Enemy
+from src.sprites.asteroid import Asteroid
+
+# Эффекты
+from src.effects.explosion import EnemyExplosion, AsteroidExplosion
+from src.effects.scrolling_background import ScrollBackground
+
+# Утилиты
+from src.utils.asset_loader import AssetLoader
+
+# Инициализация pygame
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-
 pygame.init()
 pygame.mixer.init()
 
-pygame.mixer.music.load('space.ogg')
-pygame.mixer.music.play()
-fire_sound = pygame.mixer.Sound('fire.ogg')
-explosion_sound = pygame.mixer.Sound('explosion.mp3')
-vzriv_sound = pygame.mixer.Sound('vzriv.ogg')
+# Загрузка звуков
+pygame.mixer.music.load(AssetLoader.get_asset_path('sounds', 'space.ogg'))
+pygame.mixer.music.play(-1)
+fire_sound = AssetLoader.load_sound('fire.ogg')
+explosion_sound = AssetLoader.load_sound('explosion.mp3')
+vzriv_sound = AssetLoader.load_sound('vzriv.ogg')
 
 font1 = pygame.font.Font(None, 80)
 win = font1.render('YOU WIN!', True, (255, 255, 255))
