@@ -1,9 +1,11 @@
+from src.utils.asset_loader import AssetLoader
+
 # Определяем пути к файлам изображений
-img_back = 'space1.jpg'        # Путь к фоновому изображению космоса
-img_hero = 'spaceship.png'     # Путь к изображению корабля игрока
-img_enemy = 'transport.png'    # Путь к изображению вражеского корабля
-img_asteroid = 'asteroid.png'  # Путь к изображению астероида
-img_bullet = 'bullet.png'      # Путь к изображению пули
+img_back = AssetLoader.get_asset_path('backgrounds', 'space1.jpg')
+img_hero = AssetLoader.get_asset_path('ships', 'spaceship.png')
+img_enemy = AssetLoader.get_asset_path('ships', 'transport.png')
+img_asteroid = AssetLoader.get_asset_path('objects', 'asteroid.png')
+img_bullet = AssetLoader.get_asset_path('objects', 'bullet.png')
 
 score = 0  # Инициализируем счетчик набранных очков
 lost = 0   # Инициализируем счетчик пропущенных врагов

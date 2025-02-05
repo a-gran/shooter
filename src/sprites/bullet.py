@@ -1,4 +1,4 @@
-from game_sprite import GameSprite
+from src.sprites.game_sprite import GameSprite
 
 class Bullet(GameSprite):
     def update(self):

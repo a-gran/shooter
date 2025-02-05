@@ -1,5 +1,5 @@
 import pygame
-from variables import win_width, win_height
+from src.config.variables import win_width, win_height
 
 class ScrollBackground:
     def __init__(self, image_path):
