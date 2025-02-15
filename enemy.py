@@ -1,5 +1,5 @@
 from random import randint
-from variables import win_width, win_height, lost
+from variables import *
 from game_sprite import GameSprite
 
 class Enemy(GameSprite):

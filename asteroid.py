@@ -11,7 +11,7 @@ class Asteroid(GameSprite):
         angle_degrees = randint(-70, 70)
         angle_radians = math.radians(angle_degrees)
         total = abs(math.sin(angle_radians)) + abs(math.cos(angle_radians))
-        
+
         if total != 0:
             self.speed_x = (self.base_speed * math.sin(angle_radians)) / total
             self.speed_y = (self.base_speed * math.cos(angle_radians)) / total
@@ -30,12 +30,11 @@ class Asteroid(GameSprite):
         
         if self.rect.y > win_height or self.rect.x < -50 or self.rect.x > win_width:
             self.rect.x = randint(80, win_width - 80)
-            self.rect.y = 0
-            
+            self.rect.y = 0            
             angle_degrees = randint(-45, 45)
             angle_radians = math.radians(angle_degrees)
             total = abs(math.sin(angle_radians)) + abs(math.cos(angle_radians))
-            
+                      
             if total != 0:
                 self.speed_x = (self.base_speed * math.sin(angle_radians)) / total
                 self.speed_y = (self.base_speed * math.cos(angle_radians)) / total

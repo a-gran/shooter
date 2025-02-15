@@ -1,7 +1,6 @@
 import pygame
 from random import randint
 from variables import *
-from constants import FPS
 from player import Player
 from enemy import Enemy
 from asteroid import Asteroid
@@ -17,6 +16,7 @@ pygame.mixer.init()
 pygame.mixer.music.load('space.ogg')
 pygame.mixer.music.play()
 fire_sound = pygame.mixer.Sound('fire.ogg')
+
 explosion_sound = pygame.mixer.Sound('explosion.mp3')
 vzriv_sound = pygame.mixer.Sound('vzriv.ogg')
 

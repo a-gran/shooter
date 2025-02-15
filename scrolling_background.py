@@ -17,7 +17,6 @@ class ScrollBackground:
         # Двигаем оба изображения вниз
         self.bg1_y += self.scroll_speed
         self.bg2_y += self.scroll_speed
-
         # Если первое изображение полностью ушло вниз
         if self.bg1_y >= win_height:
             self.bg1_y = self.bg2_y - win_height
