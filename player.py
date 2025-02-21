@@ -28,6 +28,13 @@ class Player(GameSprite):
         if keys[pygame.K_RIGHT] and self.rect.x < win_width - 80:
             # Двигаем игрока вправо
             self.rect.x += self.speed
+        if keys[pygame.K_UP] and self.rect.y > win_height - 100:
+            # Двигаем игрока влево
+            self.rect.y -= self.speed
+        # Если нажата клавиша вправо и игрок не достиг правой границы
+        if keys[pygame.K_DOWN] and self.rect.y < 100:
+            # Двигаем игрока вправо
+            self.rect.y += self.speed
 
     # Метод для стрельбы
     def fire(self):

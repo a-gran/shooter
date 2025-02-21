@@ -141,9 +141,14 @@ while run:
                 # Воспроизводим звук взрыва
                 explosion_sound.play()
                 # Увеличиваем счет
-                score += 1
-                # Добавляем нового врага
-                add_enemy()
+                score += 1                
+                # Проверяем достижение победного счета
+                if score >= score_win:
+                    win_explosion_in_progress = True
+                    explosion_start_time = pygame.time.get_ticks()
+                else:
+                    # Добавляем нового врага только если не достигнут победный счет
+                    add_enemy()
 
             # Проверяем столкновения пуль с астероидами
             asteroid_hits = pygame.sprite.groupcollide(asteroids, bullets, True, True)
@@ -200,17 +205,17 @@ while run:
             mw.blit(lose, (win_width//2-100, win_height//2-50))
 
         # Проверяем условия победы (набрано 10 очков)
-        if score >= 10:
-            # Отображаем сообщение о победе
-            mw.blit(win, (win_width//2-100, win_height//2-50))
-            # Завершаем игру
-            finish = True
-        # Проверяем условия поражения (пропущено максимальное количество врагов)
-        elif lost >= max_lost and not explosion_in_progress:
-            # Отображаем сообщение о проигрыше
-            mw.blit(lose, (win_width//2-100, win_height//2-50))
-            # Завершаем игру
-            finish = True
+        if score >= score_win:
+            if win_explosion_in_progress:
+                current_time = pygame.time.get_ticks()
+                if current_time - explosion_start_time >= EXPLOSION_DURATION:
+                    # Отображаем сообщение о победе только после завершения анимации
+                    mw.blit(win, (win_width//2-100, win_height//2-50))
+                    finish = True
+            else:
+                # Если нет активной анимации взрыва, сразу показываем победу
+                mw.blit(win, (win_width//2-100, win_height//2-50))
+                finish = True
 
     # Обновляем экран
     pygame.display.update()
