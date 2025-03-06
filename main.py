@@ -2,6 +2,8 @@
 import pygame
 # Импортируем функцию randint для генерации случайных чисел
 from random import randint
+# Импортируем модуль os для работы с операционной системой
+import os
 # Импортируем все переменные из файла variables.py
 from variables import *
 # Импортируем все флаги из файла flags.py
@@ -16,16 +18,12 @@ from asteroid import Asteroid
 from explosion import *
 # Импортируем класс для создания скроллящегося фона
 from scrolling_background import ScrollBackground
-# Импортируем модуль os для работы с операционной системой
-import os
 
 # Скрываем приветственное сообщение pygame
 os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 
 # Инициализируем все модули pygame
 pygame.init()
-# Инициализируем модуль для работы со звуком
-pygame.mixer.init()
 
 # Загружаем и запускаем фоновую музыку
 pygame.mixer.music.load('space.ogg')
@@ -69,7 +67,7 @@ explosions = pygame.sprite.Group()
 # Функция для добавления нового врага
 def add_enemy():
     # Создаем врага со случайной позицией по X и случайной скоростью
-    enemy = Enemy(img_enemy, randint(80, win_width - 80), -40, 80, 50, randint(1, 5))
+    enemy = Enemy(img_ship, randint(80, win_width - 80), -40, 80, 50, randint(1, 5))
     # Добавляем врага в группу врагов
     enemies.add(enemy)
 
@@ -81,11 +79,11 @@ def add_asteroid():
     asteroids.add(asteroid)
 
 # Создаем начальное количество врагов (5 штук)
-for i in range(1, 6):
+for i in range(1, 10):
     add_enemy()
 
 # Создаем начальное количество астероидов (2 штуки)
-for i in range(1, 3):
+for i in range(1, 10):
     add_asteroid()
 
 # Основной игровой цикл
