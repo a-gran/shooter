@@ -1,1 +1,4 @@
-## Описание игры Shooter
+# Игра Space Shooter
+
+Простая игра на Pygame.
+
